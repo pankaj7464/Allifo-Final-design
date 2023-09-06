@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Mukta:wght@200;300;400;500;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-family: "Mukta", sans-serif;
+}
+
+.app {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar in Chrome, Safari, and newer versions of Edge */
+}
+
+.no-scrollbar {
+  scrollbar-width: none; /* Hide the scrollbar in Firefox and older versions of Edge */
+  transition: all 0.3s ease; 
+  -ms-overflow-style: none; /* Hide the scrollbar in IE */
+}
+.app:focus {
+  outline: none !important;
+}
+
+/* Removing backgound color caused by auto complete  */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+@layer utilities {
+  .press-1 {
+    cursor: pointer;
+  }
+  .press-2 {
+    cursor: pointer;
+  }
+  .press-3 {
+    cursor: pointer;
+  }
+  .press-4 {
+    cursor: pointer;
+  }
+  .press-5 {
+    cursor: pointer;
+  }
+
+  .press-1:active {
+    transform: scale(0.99);
+  }
+  .press-2:active {
+    transform: scale(0.98);
+  }
+  .press-3:active {
+    transform: scale(0.97);
+  }
+  .press-4:active {
+    transform: scale(0.96);
+  }
+  .press-5:active {
+    transform: scale(0.95);
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Custom scroll bar */
+  .custom-scrollbar-1::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  .custom-scrollbar-1::-webkit-scrollbar-track {
+    background: #fff;
+  }
+  .custom-scrollbar-1::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Dashboard -> Closuer summary */
+  /* Custom table 1 */
+  .custom-table-1 {
+    border: 1px solid black;
+  }
+  .custom-table-1 th {
+    font-weight: 400;
+    padding: 2px 5px;
+    border: 1px solid black;
+  }
+  .custom-table-1 td {
+    border-right: 1px solid black;
+    padding: 2px 20px;
+  }
+  .custom-table-1 td:nth-child(2) {
+    text-align: center;
+  }
+
+  /* Dashboard -> Stock summary */
+  /* Custom table 2 */
+  .custom-table-2 {
+    width: 90%;
+    margin: 0 auto;
+    white-space: nowrap;
+    border: 1px solid black;
+  }
+  .custom-table-2 td {
+    text-align: left;
+    border-right: 1px solid black;
+    padding: 7px 20px;
+  }
+
+  /* Table1 Component */
+  /* Custom table 3 */
+  .custom-table-3 th {
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+  }
+  .custom-table-3 th:last-child {
+    border-right: 0px solid gray;
+  }
+  .custom-table-3 td {
+    border-right: 1px solid gray;
+  }
+  .custom-table-3 td:last-child {
+    border-right: 0px solid gray;
+  }
+
+  /* Table1 Component */
+  /* Custom scroll bar 2 */
+  .custom-scrollbar-2::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .custom-scrollbar-2::-webkit-scrollbar-track {
+    background: #bbb;
+  }
+  .custom-scrollbar-2::-webkit-scrollbar-thumb {
+    background: #449199;
+  }
+  .custom-scrollbar-2::-webkit-scrollbar-thumb:hover {
+    background: #69a7ad;
+  }
+
+  /* Table1 Component */
+  /* Custom shadow 1 */
+  .custom-shadow-1 {
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+  }
+}
