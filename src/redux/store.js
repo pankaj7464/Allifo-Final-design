@@ -1,5 +1,18 @@
-import { applyMiddleware, createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import reducers from "./reducer/index"; // Import your combined reducer
 
-const store = createStore(()=>{})
+// Check if Redux DevTools Extension is available
+const composeEnhancers =
+  process.env.NODE_ENV === "development"
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+    : compose;
+// Create the Redux store
+export const store = createStore(
+  reducers, // Pass the combined reducer
+  composeEnhancers(applyMiddleware(thunk))
+);
 
-export default store;
+export default store
+
+

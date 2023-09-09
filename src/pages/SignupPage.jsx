@@ -10,7 +10,7 @@ const SignupPage = () => {
       <div className="flex items-center justify-center px-4  sm:px-6  lg:px-8">
         <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md bg-primary rounded-xl p-8 border">
           <div className="mb-2 flex justify-center">
-            <h1>NEBULA</h1>
+            <h1>ALLIFO</h1>
           </div>
           <h2 className="text-center text-2xl font-bold leading-tight ">
             Sign up to create account

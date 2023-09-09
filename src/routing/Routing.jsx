@@ -20,7 +20,6 @@ const Routing = () => {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/signup" element={<SignupPage/>} />
           <Route path="/signin" element={<LoginPage/>} />
-          
           {/* Use a route parameter to capture the category */}
           <Route path="/:category/:postId" element={<PostDetail />} />
           {/* Fallback route for unknown paths */}

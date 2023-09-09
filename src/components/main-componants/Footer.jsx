@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="w-full bg-primary  border-t border-border mt-10 mb-4">
       <div className="mx-auto py-4 flex max-w-6xl items-center justify-between">
         <div className="inline-flex items-center">
-          <span className="ml-4 text-lg font-bold">NEBULA</span>
+          <span className="ml-4 text-lg font-bold">ALLIFO</span>
         </div>
         <div className="hidden items-center md:inline-flex">
           <span className="text-sm font-medium ">

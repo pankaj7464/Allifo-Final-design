@@ -1,13 +1,13 @@
 import React from "react";
 import PostMetaData from "../common/PostMetaData";
-const PostCard = () => {
+const PostCard = ({ post }) => {
   return (
     <div className={` w-full max-h-[10rem]`}>
       <h2 className="text-xl font-semibold">
-        Wordle Today (#791): Wordle answer and hints for August 19
+        {post?.title}
       </h2>
       <PostMetaData
-        category={"Entertainment"}
+        category={post?.categoryId?.name}
         author={"Nick Pankaj "}
         time={"9 hour ago"}
       />

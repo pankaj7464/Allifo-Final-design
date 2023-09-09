@@ -3,6 +3,7 @@ import { Menu, X, } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { PiUserCircle } from "react-icons/pi";
 import { CiBellOn, CiSearch } from "react-icons/ci";
+import Search from "../Search";
 const menuItems = [
   {
     id: 1,
@@ -35,14 +36,16 @@ const menuItems = [
     to: "/contact",
   },
 ];
+
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setSearchOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <nav className="sticky left-0 top-0 z-40 w-full border-b border-border backdrop-blur-2xl  py-4">
+    <nav className=" border-b border-border  py-4">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <div className="inline-flex items-center space-x-2">
           <NavLink to={"/"}>
@@ -55,7 +58,7 @@ function Navbar() {
               <Link
                 key={index}
                 to={item.to}
-                className="inline-flex items-center text-sm font-semibold  hover:text-gray-300"
+                className="inline-flex items-center  text-base font-bold  hover:text-gray-300"
               >
                 {item.name}
               </Link>
@@ -63,18 +66,15 @@ function Navbar() {
           </ul>
         </div>
         <div className="flex items-center gap-4">
+
           <div className="flex items-center gap-4">
-            <CiSearch
-              className=" border-border cursor-pointer rounded-full "
-              size={24}
-            />
             <CiBellOn
               className="hover:border border-border cursor-pointer rounded-full "
               size={24}
             />
             <Link to={"/user"}>
               <PiUserCircle
-                className="hover:border border-border cursor-pointer rounded-full "
+                className="cursor-pointer rounded-full "
                 size={24}
               />
             </Link>
@@ -90,7 +90,7 @@ function Navbar() {
               <div className="px-5 pb-6 pt-5">
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center space-x-2">
-                    <span className="font-bold">NEBULA</span>
+                    <span className="font-bold">ALLIFO</span>
                   </div>
                   <div className="-mr-2">
                     <button
@@ -107,12 +107,12 @@ function Navbar() {
                   <nav className="flex flex-col gap-2">
                     {menuItems.map((item) => (
                       <Link
-                        key={item.name}
+                        key={item?.name}
                         to={item.to}
                         onClick={toggleMenu}
                       >
-                        <span className="flex items-center  justify-center rounded-md p-3  text-center  hover:bg-secondary  text-base w-full font-medium">
-                          {item.name}
+                        <span className="flex items-center  justify-center rounded-md p-3  text-center  hover:bg-secondary  text-xs">
+                          {item?.name}
                         </span>
                       </Link>
                     ))}

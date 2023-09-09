@@ -3,9 +3,19 @@ import Hero from "../components/main-componants/Hero";
 import PostVerticalCard from "../components/cards/PostVerticalCard";
 import { Link } from "react-router-dom";
 import Banner from "../components/common/Banner";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategory, fetchHomeData } from "../redux/action/Action";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { home_data } = useSelector(state => state?.blogs)
+  console.log(home_data)
+  let { trendingPosts, topViewedPosts, topRecentPosts } = home_data || {}
   useEffect(() => {
+    if (!home_data) {
+      dispatch(fetchHomeData());
+      dispatch(fetchCategory());
+    }
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -14,14 +24,14 @@ const Home = () => {
   return (
     <section className=" ">
       <Banner />
-      <Hero />
+      <Hero trendingPosts={trendingPosts} topRecentPosts={topRecentPosts} />
       <div className="m-4">
-        <h1>Trending</h1>
+        <h1>Top viewed articles!</h1>
         <div className="grid  lg:grid-cols-4 md:grid-cols-2 gap-4  ">
-          {[1, 2, 3, 4]?.map((item, index) => {
+          {topViewedPosts?.map((item, index) => {
             return (
-              <Link to={`/${"computer"}/${"dfsdfsdfsd"}`} key={index}>
-                <PostVerticalCard />
+              <Link to={`${item?.categoryId?.name?.split(" ").join("-")}/${item?.slug}`} key={item?._id}>
+                <PostVerticalCard key={item?._id + index} item={item} />
               </Link>
             );
           })}

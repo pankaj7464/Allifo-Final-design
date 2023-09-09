@@ -3,35 +3,30 @@ import { useParams } from "react-router-dom";
 import image from "../assets/images.jpg";
 import PostCardWithThumbnail from "../components/cards/PostCardWithThumbnail";
 import PostCard from "../components/cards/PostCard";
+import { fetchBlogById } from "../redux/action/Action";
+import { useDispatch, useSelector } from "react-redux";
 const PostDetail = () => {
+  const dispatch = useDispatch()
   const { category, postId } = useParams();
-  // Assuming you have some data or logic to fetch the post details based on the category and postId
-  const post = {
-    title: "Sample Blog Post Title",
-    content: "This is the content of the blog post...",
-    author: "John Doe",
-    date: "August 19, 2023",
-  };
-
-  // Dummy data for recent posts
-  const recentPosts = [
-    { id: 1, title: "Recent Post 1" },
-    { id: 2, title: "Recent Post 2" },
-    { id: 3, title: "Recent Post 3" },
-  ];
+  const postData = useSelector(state => state?.blogs?.post)
+  console.log(postData)
+  let { post, similarPostsByCategory, topRecentPosts } = postData || {}
   useEffect(() => {
+    if (!postData && postId) {
+      dispatch(fetchBlogById(postId));
+    }
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
-  }, []);
+  }, [postId]);
   return (
     <>
       <section className="md:w-[90%] mx-auto lg:flex">
         {/* Left section for blog post details */}
         <section className="lg:w-3/4 p-4 ">
           <section className="flex flex-col gap-6">
-            <h1 className="text-2xl  md:text-4xl">{post.title}</h1>
+            <h1 className="text-2xl  md:text-4xl">{post?.title}</h1>
             <div className="flex justify-between items-center">
               <div className="flex  items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden">
@@ -39,9 +34,9 @@ const PostDetail = () => {
                 </div>
                 <div>
                   <div>
-                    <span className="text-xl">{post.author} </span>
+                    <span className="text-xl">{post?.author} </span>
                     <span className="text-slate-500 -mt-6">
-                      {post.date}
+                      {post?.date}
                     </span>{" "}
                   </div>
                   <span>Designation</span>
@@ -53,7 +48,8 @@ const PostDetail = () => {
               </div>
             </div>
             <p className=" text-xl font-light text-justify">
-              {post.content}
+             
+              <p dangerouslySetInnerHTML={{ __html: post?.content }}></p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
               ducimus dolor autem, voluptas exercitationem eligendi distinctio
               nesciunt dicta corrupti molestiae mollitia earum ab minima
@@ -80,24 +76,31 @@ const PostDetail = () => {
               Excepturi minus totam, eos quasi eaque eius! Laborum, accusamus.
             </p>
           </section>
+          <hr className="border-t-2  border-slate-500 my-4" />
           <section className=" flex flex-col gap-4">
             <h2 className="text-2xl font-semibold">
-              Popular Post in Computing
+
+              Similar post in {post?.categoryId?.name}
             </h2>
-            <PostCardWithThumbnail />
-            <PostCardWithThumbnail />
-            <PostCardWithThumbnail />
-            <PostCardWithThumbnail />
+            {
+              similarPostsByCategory?.map((item, idx) => {
+                return <>
+                  <PostCardWithThumbnail key={idx} post={item} />
+                </>
+              })
+            }
           </section>
         </section>
         {/* Right section for recent posts */}
         <section className="lg:w-1/3 p-4">
-          <h1 className=" text-2xl  mb-12 mt-[4.5rem]">Recent Posts</h1>
+          <h1 className=" text-2xl  mb-12 mt-[4.5rem]">
+            Recent articles!
+          </h1>
 
           <div className="flex flex-col gap-6">
-            {recentPosts.map((recentPost) => (
+            {topRecentPosts?.map((recentPost,idx) => (
               <>
-                <PostCard />
+                <PostCard  post = {recentPost} key={idx}/>
                 <hr className="border-t-2  border-slate-500" />
               </>
             ))}

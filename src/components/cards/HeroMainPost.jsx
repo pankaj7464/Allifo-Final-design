@@ -4,8 +4,8 @@ import PostMetaData from "../common/PostMetaData";
 const HeroMainPost = ({}) => {
   return (
     <>
-      <div className="flex flex-col w-full">
-        <img className=" w-full" src={image} alt="" />
+      <div className="flex flex-col h-auto w-full">
+        <img className=" w-full h-1/2" src={image} alt="" />
         <div>
           <h1>The DCEU was better than the MCU. Here’s why</h1>
           <p>

@@ -2,56 +2,59 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs"; // Import icons from react-icons
 import { smoothScroll } from "../../utils/utils";
+import { useSelector } from "react-redux";
 
 const Banner = () => {
-  const category = [
+  const category = useSelector(state => state?.blogs?.category) || []
+  console.log(category)
+  const test = [
     {
-      category: "News",
-      _id: "2323",
+      name: "News",
+      _id: "2323" + new Date().getMilliseconds(),
     },
     {
-      category: "Computing",
-      _id: "2323",
+      name: "Computing",
+      _id: "2323"+ new Date().getMilliseconds(),
     },
     {
-      category: "Top Deals",
-      _id: "2323",
+      name: "Top Deals",
+      _id: "2323"+ new Date().getMilliseconds(),
     },
     {
-      category: "Top College",
-      _id: "2323",
+      name: "Top College",
+      _id: "2323"+ new Date().getMilliseconds(),
     },
     {
-      category: "News",
-      _id: "2323",
+      name: "News",
+      _id: "2323"+ new Date().getMilliseconds(),
     },
     {
-      category: "Computing",
-      _id: "2323",
+      name: "Computing",
+      _id: "2323"+ new Date().getMilliseconds(),
     },
     {
-      category: "Top Deals",
-      _id: "2323",
+      name: "Top Deals",
+      _id: "2323"+ new Date().getMilliseconds(),
     },
     {
-      category: "Top College",
-      _id: "2323",
+      name: "Top College",
+      _id: "2323"+ new Date().getMilliseconds(),
     },
     {
-      category: "News",
-      _id: "2323",
+      name: "News",
+      _id: "2323"+ new Date().getMilliseconds(),
     },
     {
-      category: "Computing",
-      _id: "2323",
+      name: "Computing",
+      _id: "2323"+ new Date().getMilliseconds(),
     },
     {
-      category: "Top Deals",
-      _id: "2323",
+      name: "Top Deals",
+      _id: "2323"+ new Date().getMilliseconds(),
     },
     {
-      category: "Top College",
-      _id: "2323",
+      name: "Top College",
+      _id: "2323"+ new Date().getMilliseconds(),
     },
   ];
 
@@ -72,7 +75,7 @@ const Banner = () => {
 
 
   return (
-    <div className="bg-primary p-4 mb-3 border-t border-b">
+    <div className="sticky left-0 top-0 z-40 w-full backdrop-blur-2xl bg-primary p-4 border-t border-b">
       <div className="flex items-center gap-4">
         <button onClick={handleScrollLeft}>
           <BsArrowLeft />
@@ -81,9 +84,9 @@ const Banner = () => {
           className="overflow-x-scroll flex items-center gap-4 md:gap-8 no-scrollbar"
           ref={scrollContainerRef}
         >
-          {category?.map((item) => <Link key={item._id}>
+          {category?.concat(test)?.map((item) => <Link key={item._id}>
             <span className="font-bold uppercase whitespace-nowrap">
-              {item?.category}
+              {item?.name}
             </span>
           </Link>)}
         </div>
