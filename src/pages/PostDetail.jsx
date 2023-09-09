@@ -15,6 +15,7 @@ const PostDetail = () => {
     if (postId) {
       dispatch(fetchBlogById(postId));
     }
+    console.log(post)
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
