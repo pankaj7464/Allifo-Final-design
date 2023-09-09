@@ -12,7 +12,7 @@ const PostDetail = () => {
   console.log(postData)
   let { post, similarPostsByCategory, topRecentPosts } = postData || {}
   useEffect(() => {
-    if (!postData && postId) {
+    if (postId) {
       dispatch(fetchBlogById(postId));
     }
     window.scrollTo({
@@ -20,10 +20,10 @@ const PostDetail = () => {
       behavior: 'smooth',
     });
   }, [postId]);
+  console.log(post)
   return (
     <>
       <section className="md:w-[90%] mx-auto lg:flex">
-        {/* Left section for blog post details */}
         <section className="lg:w-3/4 p-4 ">
           <section className="flex flex-col gap-6">
             <h1 className="text-2xl  md:text-4xl">{post?.title}</h1>
@@ -34,36 +34,22 @@ const PostDetail = () => {
                 </div>
                 <div>
                   <div>
-                    <span className="text-xl">{post?.author} </span>
+                    <span className="text-xl">{post?.authorId?.username} </span>
                     <span className="text-slate-500 -mt-6">
                       {post?.date}
                     </span>{" "}
                   </div>
-                  <span>Designation</span>
+                  <span>{post?.authorId?.email}</span>
                 </div>
               </div>
               <div>
-                <span>Like</span>
-                <span>view : 15k</span>
+                <span>Read : {post?.views}</span>
               </div>
             </div>
             <p className=" text-xl font-light text-justify">
-             
+
               <p dangerouslySetInnerHTML={{ __html: post?.content }}></p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-              ducimus dolor autem, voluptas exercitationem eligendi distinctio
-              nesciunt dicta corrupti molestiae mollitia earum ab minima
-              repellat aperiam incidunt impedit officia quisquam sequi? Quis
-              possimus voluptas expedita et rerum ipsum eaque quod, suscipit
-              incidunt cupiditate quasi adipisci quisquam repellendus molestias
-              a magnam dolore tempore. Eius explicabo, vero laudantium, dolores
-              similique optio animi, temporibus fuga sit quidem quia. Ex
-              explicabo et obcaecati suscipit? Suscipit velit sapiente inventore
-              ipsam! Tempore accusamus cum temporibus unde ea recusandae vel
-              commodi, id consequuntur maxime iure impedit aut distinctio ad
-              cupiditate eveniet consectetur, doloribus ab? Nihil cumque culpa
-              expedita blanditiis harum illum reiciendis iure veritatis ipsum
-              repellendus. Minus, magnam id. Commodi aliquam, culpa aliquid
+              liquam, culpa aliquid
               animi assumenda explicabo? Labore vero, repudiandae quasi fuga
               velit consequatur autem deserunt eligendi dicta molestiae ut
               voluptas officiis atque? Nam dolor modi repudiandae, ea officiis
@@ -98,9 +84,9 @@ const PostDetail = () => {
           </h1>
 
           <div className="flex flex-col gap-6">
-            {topRecentPosts?.map((recentPost,idx) => (
+            {topRecentPosts?.map((recentPost, idx) => (
               <>
-                <PostCard  post = {recentPost} key={idx}/>
+                <PostCard post={recentPost} key={idx} />
                 <hr className="border-t-2  border-slate-500" />
               </>
             ))}
