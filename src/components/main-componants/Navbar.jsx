@@ -18,7 +18,7 @@ const menuItems = [
   {
     id: 3,
     name: "Blog",
-    to: "/blog",
+    to: "/blogs",
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <div className="inline-flex items-center space-x-2">
           <NavLink to={"/"}>
-            <span className="font-bold ">ALLIFO</span>
+            <span className="font-bold  text-2xl">ALLIFO</span>
           </NavLink>
         </div>
         <div className="hidden md:block">
@@ -72,7 +72,7 @@ function Navbar() {
               className="hover:border border-border cursor-pointer rounded-full "
               size={24}
             />
-            <Link to={"/user"}>
+            <Link to={"/signup"}>
               <PiUserCircle
                 className="cursor-pointer rounded-full "
                 size={24}
@@ -126,7 +126,7 @@ function Navbar() {
                     </Link>
                     <Link
 
-                      to="/singin"
+                      to="/signin"
                     >
                       <span className="flex items-center rounded-md justify-center p-3  text-center  bg-secondary  text-base w-full font-medium">
                         SignIn

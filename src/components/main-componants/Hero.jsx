@@ -23,7 +23,6 @@ const Hero = ({ trendingPosts, topRecentPosts }) => {
               );
             })}
           </div>
-
           <div className="w-full flex flex-col gap-8 ">
             <h2 className=" text-xl font-bold text-colors-accent">LATEST HEADLINES</h2>
             {trendingPosts?.map((post, index) => {

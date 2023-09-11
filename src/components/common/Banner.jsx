@@ -75,7 +75,7 @@ const Banner = () => {
 
 
   return (
-    <div className="sticky left-0 top-0 z-40 w-full backdrop-blur-2xl bg-primary p-4 border-t border-b">
+    <div className="sticky left-0 top-0 z-40 w-full backdrop-blur-2xl bg-primary p-2 border-t border-b">
       <div className="flex items-center gap-4">
         <button onClick={handleScrollLeft}>
           <BsArrowLeft />
@@ -85,7 +85,7 @@ const Banner = () => {
           ref={scrollContainerRef}
         >
           {category?.concat(test)?.map((item) => <Link key={item._id}>
-            <span className="font-bold uppercase whitespace-nowrap">
+            <span className="font-bold uppercase whitespace-nowrap text-base">
               {item?.name}
             </span>
           </Link>)}

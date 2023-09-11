@@ -28,28 +28,19 @@ const SignupPage = () => {
           <form action="#" method="POST" className="mt-8">
             <div className="space-y-5">
               <div>
-                <label htmlFor="name" className="text-base font-medium ">
-                  {" "}
-                  Full Name{" "}
-                </label>
+              
                 <div className="mt-2">
                   <Input type="text" placeholder="Full Name" id="name"></Input>
                 </div>
               </div>
               <div>
-                <label htmlFor="name" className="text-base font-medium ">
-                  {" "}
-                  User Name{" "}
-                </label>
+               
                 <div className="mt-2">
                   <Input type="text" placeholder="User Name" id="name"></Input>
                 </div>
               </div>
               <div>
-                <label htmlFor="email" className="text-base font-medium ">
-                  {" "}
-                  Email address{" "}
-                </label>
+            
                 <div className="mt-2">
                   <Input
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
@@ -60,12 +51,7 @@ const SignupPage = () => {
                 </div>
               </div>
               <div>
-                <div className="flex items-center justify-between">
-                  <label htmlFor="password" className="text-base font-medium ">
-                    {" "}
-                    Password{" "}
-                  </label>
-                </div>
+                
                 <div className="mt-2">
                   <Input
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
