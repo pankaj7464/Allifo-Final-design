@@ -21,7 +21,7 @@ function Blogs(props) {
   return <>
     <Banner />
     <section className="grid md:grid-cols-[70%_28%]">
-      <div className="m-4 px-4 border-r-4">
+      <div className="m-4 px-4 md:border-r-4">
         <h1>Recent uploads!</h1>
         <div className="grid  lg:grid-cols-3 md:grid-cols-2 gap-4  ">
           {allBlogs?.map((item, index) => {
